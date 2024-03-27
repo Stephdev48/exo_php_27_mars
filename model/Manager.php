@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
                 $listCharacters = $client->request('GET', 'characters?limit=70');
                 return $listCharacters;
             }
-            catch(Execption $e){
+            catch(Exception $e){
                 die($e->getMessage());
             }
         }

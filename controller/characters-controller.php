@@ -1,5 +1,5 @@
 <?php
-    require("model/Characters-model.php")
+    require("model/Characters-model.php");
     ?>
 
     <?php
@@ -8,8 +8,13 @@
                 $character = new Characters;
                 $characters = $character -> getCharacters();
                 require ("view/charactersView.php");
-                
             }
         }
-
+        class CharacterSingleControl {
+            public function getSingleCharac(){
+                $character = new CharacSingle();
+                $characters = $character -> getSingleCharac();
+                require ("view/characterSingleView.php");
+            }
+        }
 ?>
