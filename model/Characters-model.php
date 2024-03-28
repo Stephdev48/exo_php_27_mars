@@ -22,11 +22,25 @@
                     die($e->getMessage());
                 }
             }
-        }
+        
 
-        class CharacSingle {
-            public function getCharacter(){
-               
+            public function getSingleCharacters(){
+                
+                try {
+                    $client = new \GuzzleHttp\Client();
+                    $response = $client->request('GET', 'https://dragonball-api.com/api/characters/'.intval($_GET['id']));
+                    if ($response->getStatusCode()==200){
+                        // echo $response->getStatusCode(); // 200
+                        // echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
+                        // echo "<pre>".$response->getBody()."</pre>"; // '{"id": 1420053, "name": "guzzle", ...}'
+                        return json_decode($response->getBody()->getContents(), true);
+                    }else{
+                        require ("view/errorView.php");
+                    }
+                }
+                catch(Exception $e){
+                    die($e->getMessage());
+                }
         }
-    }
+        }
         ?>

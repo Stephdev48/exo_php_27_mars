@@ -18,7 +18,7 @@ foreach ($characters['items'] as $character_single){
         <h3>Race :  <?php echo $character_single['gender']; ?></h3>
         <p>Description :<?php echo $character_single['description']; ?></p>
         <?php Kint::dump($characters); ?>
-        <a href="index.php?page=<?php echo $character_single['id']; ?>" target="_blank">voir plus</a>
+        <a href="index.php?page=pdf&id=<?php echo $character_single['id']; ?>">voir plus</a>
     </li>
     <?php
 }
